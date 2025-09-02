@@ -3,9 +3,12 @@ import { shortenUrlRoute } from "./routes/routes";
 import cron from "node-cron";
 import { UrlCleanUpService } from "./services/UrlCleanupService";
 import { SandGridEmail } from "./services/emailService";
+import cors from "cors";
+
 export const app = express();
 
 app.use(json());
+app.use(cors());
 app.use("/", shortenUrlRoute);
 
 cron.schedule("0 3 * * *", async () => {

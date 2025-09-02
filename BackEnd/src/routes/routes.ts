@@ -9,4 +9,4 @@ const shortenURLController = new ShortenController();
 
 shortenUrlRoute.post("/", bodyMiddleware.bodyIsValid(CreateshortenURLSchema), shortenURLController.register);
 shortenUrlRoute.get("/:shortUrl", shortenURLController.redirectUrl);
-// shortenUrlRoute.delete("/", shortenURLController.cleanOldUrls);
+shortenUrlRoute.get("/", shortenURLController.getAllUrls);

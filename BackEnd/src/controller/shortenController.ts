@@ -34,4 +34,9 @@ export class ShortenController {
     await this.urlCleanUpService.cleanOldUrls(10);
     return res.status(204).json();
   };
+
+  public getAllUrls = async (req: Request, res: Response): Promise<Response> => {
+    const allUrls = await this.shortenService.getAllUrls();
+    return res.status(200).json(allUrls);
+  };
 }

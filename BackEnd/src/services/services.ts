@@ -1,6 +1,6 @@
 import { prisma } from "../database/prismaClient";
 import { TCreateShortenUrl, TRedirectUrl, TReturnShortenUrl, TShortenUrl } from "../interfaces/shortenUrlInterface";
-import { RedirectUrlSchema, ReturnShortenUrlSchema } from "../schema/shortenUrlSchema";
+import { RedirectUrlSchema, ReturnShortenUrlSchema, shortenURLSchema } from "../schema/shortenUrlSchema";
 
 export class ShortenUrlService {
   public register = async (payload: TCreateShortenUrl): Promise<TReturnShortenUrl> => {
@@ -37,5 +37,10 @@ export class ShortenUrlService {
     await prisma.shortenURL.update({ where: { shortUrl }, data: updatedAccess });
 
     return redirectUrl.longUrl;
+  };
+
+  public getAllUrls = async (): Promise<TShortenUrl[]> => {
+    const allUrls = await prisma.shortenURL.findMany();
+    return shortenURLSchema.array().parse(allUrls);
   };
 }
