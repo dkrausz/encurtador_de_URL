@@ -33,6 +33,7 @@ export function FormShortenUrl() {
         progress: undefined,
         theme: "dark",
       });
+      return;
     }
     toast.success("Url criada!", {
       position: "top-right",
@@ -66,7 +67,7 @@ export function FormShortenUrl() {
   };
 
   return (
-    <form className="bg-stone-600 w-6/12 h-80 p-8 flex flex-col gap-6 rounded-md" onSubmit={handleSubmit(onSubmit)}>
+    <form className="bg-stone-600 w-6/12 h-80 p-8 flex flex-col gap-6 rounded-md max-w-3xl" onSubmit={handleSubmit(onSubmit)}>
       <h2 className="text-neutral-300 text-3xl text-center">Encurtador de Url</h2>
       <div className="flex w-full">
         <div className="flex flex-col justify-between w-full gap-6 px-6 ">
