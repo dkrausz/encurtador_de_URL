@@ -30,7 +30,6 @@ O front-end é feito com **React, TypeScript, Vite, Tailwind CSS, react-hook-for
 - Express
 - Prisma (PostgreSQL)
 - Zod (validação)
-- bcrypt / bcryptjs
 - SendGrid (envio de email)
 
 ---
